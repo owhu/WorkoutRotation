@@ -31,7 +31,7 @@ struct AddView: View {
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        let item = Item(title: title, isChecked: false, type: type, dateAdded: Date.now)
+                        let item = Item(title: title, isChecked: false, dateAdded: Date.now)
                         modelContext.insert(item)
                         dismiss()
                     }
@@ -51,7 +51,7 @@ struct AddView: View {
                 }
             }
             .onSubmit {
-                let item = Item(title: title, isChecked: false, type: type, dateAdded: Date.now)
+                let item = Item(title: title, isChecked: false, dateAdded: Date.now)
                 modelContext.insert(item)
                 dismiss()
             }

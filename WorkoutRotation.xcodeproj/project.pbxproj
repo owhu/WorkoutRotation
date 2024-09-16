@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE7DFC402C94A3600086D6CA /* Detail-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7DFC3F2C94A3600086D6CA /* Detail-ViewModel.swift */; };
 		EE904B4C2C87C4F600D5AAFB /* WorkoutRotationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B4B2C87C4F600D5AAFB /* WorkoutRotationApp.swift */; };
 		EE904B4E2C87C4F600D5AAFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B4D2C87C4F600D5AAFB /* ContentView.swift */; };
 		EE904B502C87C4F800D5AAFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE904B4F2C87C4F800D5AAFB /* Assets.xcassets */; };
@@ -14,9 +15,12 @@
 		EE904B5A2C87C95400D5AAFB /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B592C87C95400D5AAFB /* ItemView.swift */; };
 		EE904B5C2C87C96F00D5AAFB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B5B2C87C96F00D5AAFB /* Item.swift */; };
 		EE904B5E2C87C98100D5AAFB /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B5D2C87C98100D5AAFB /* AddView.swift */; };
+		EE904B942C8BB2ED00D5AAFB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B932C8BB2EC00D5AAFB /* DetailView.swift */; };
+		EE904B962C8BB43E00D5AAFB /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B952C8BB43D00D5AAFB /* PreviewProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE7DFC3F2C94A3600086D6CA /* Detail-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detail-ViewModel.swift"; sourceTree = "<group>"; };
 		EE904B482C87C4F600D5AAFB /* WorkoutRotation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutRotation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE904B4B2C87C4F600D5AAFB /* WorkoutRotationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRotationApp.swift; sourceTree = "<group>"; };
 		EE904B4D2C87C4F600D5AAFB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -25,6 +29,8 @@
 		EE904B592C87C95400D5AAFB /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		EE904B5B2C87C96F00D5AAFB /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		EE904B5D2C87C98100D5AAFB /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		EE904B932C8BB2EC00D5AAFB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		EE904B952C8BB43D00D5AAFB /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,9 @@
 				EE904B592C87C95400D5AAFB /* ItemView.swift */,
 				EE904B5B2C87C96F00D5AAFB /* Item.swift */,
 				EE904B5D2C87C98100D5AAFB /* AddView.swift */,
+				EE904B932C8BB2EC00D5AAFB /* DetailView.swift */,
+				EE7DFC3F2C94A3600086D6CA /* Detail-ViewModel.swift */,
+				EE904B952C8BB43D00D5AAFB /* PreviewProvider.swift */,
 			);
 			path = WorkoutRotation;
 			sourceTree = "<group>";
@@ -147,9 +156,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE904B5C2C87C96F00D5AAFB /* Item.swift in Sources */,
+				EE904B942C8BB2ED00D5AAFB /* DetailView.swift in Sources */,
 				EE904B4E2C87C4F600D5AAFB /* ContentView.swift in Sources */,
 				EE904B5E2C87C98100D5AAFB /* AddView.swift in Sources */,
 				EE904B5A2C87C95400D5AAFB /* ItemView.swift in Sources */,
+				EE7DFC402C94A3600086D6CA /* Detail-ViewModel.swift in Sources */,
+				EE904B962C8BB43E00D5AAFB /* PreviewProvider.swift in Sources */,
 				EE904B4C2C87C4F600D5AAFB /* WorkoutRotationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
