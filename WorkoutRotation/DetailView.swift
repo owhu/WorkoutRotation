@@ -32,7 +32,7 @@ struct DetailView: View {
                     vm.reset()
                 } label: {
                     Image(systemName: "restart.circle.fill")
-                        .frame(width: 55, height: 55)
+                        .frame(width: 55, height: 85)
                         .tint(.red)
                 }
                 .padding(.horizontal, 12)
@@ -41,12 +41,12 @@ struct DetailView: View {
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.gray, lineWidth: 4)
+                        .stroke(Color.gray, lineWidth: 3)
                 )
                 
                 VStack {
                     Text("\(vm.time)")
-                        .font(.system(size: 55, weight: .medium, design: .rounded))
+                        .font(.system(size: 60, weight: .medium, design: .rounded))
                         .alert("Time", isPresented: $vm.showingAlert) {
                             Button("Continue", role: .cancel) {
                                 vm.time = "1:00"
@@ -55,28 +55,20 @@ struct DetailView: View {
                                 
                             }
                         }
-                        .padding(10)
+                        .padding(5)
                         .frame(width: width)
                         .background(.thinMaterial)
                         .cornerRadius(10)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.gray, lineWidth: 4)
+                                .stroke(Color.gray, lineWidth: 3)
                         )
-                    
-                    //                    Slider(value: $vm.minutes, in: 1...5, step: 1)
-                    //                    //                      .padding()
-                    //                        .disabled(vm.isActive)
-                    //                        .animation(.easeInOut, value: vm.minutes)
-                    //                        .frame(width: width)
-                    //                }
-                    //                .padding(.horizontal)
                 }
                 Button {
                     vm.start(minutes: vm.minutes)
                 } label: {
                     Image(systemName: "play.circle.fill")
-                        .frame(width: 55, height: 55)
+                        .frame(width: 55, height: 85)
                         
                 }
                 .padding(.horizontal, 12)
@@ -85,20 +77,28 @@ struct DetailView: View {
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.gray, lineWidth: 4)
+                        .stroke(Color.gray, lineWidth: 3)
                 )
                 .disabled(vm.isActive)
-              
                 
-           
-
-//                    .frame(width: width)
-//                    .padding(.top)
-
+                
+                
+                
+                //                    .frame(width: width)
+                //                    .padding(.top)
+                
             }
-              .onReceive(timer) { _ in
-                  vm.updateCountdown()
-              }
+            .onReceive(timer) { _ in
+                vm.updateCountdown()
+            }
+            
+            Slider(value: $vm.minutes, in: 1...5, step: 1)
+            //                      .padding()
+                .disabled(vm.isActive)
+                .animation(.easeInOut, value: vm.minutes)
+                .frame(width: width)
+            
+                .padding(.horizontal)
             
             TextEditor(text: $notes)
                 .padding(.horizontal)

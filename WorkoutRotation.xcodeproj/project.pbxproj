@@ -65,14 +65,14 @@
 			children = (
 				EE904B4B2C87C4F600D5AAFB /* WorkoutRotationApp.swift */,
 				EE904B4D2C87C4F600D5AAFB /* ContentView.swift */,
-				EE904B4F2C87C4F800D5AAFB /* Assets.xcassets */,
-				EE904B512C87C4F800D5AAFB /* Preview Content */,
 				EE904B592C87C95400D5AAFB /* ItemView.swift */,
 				EE904B5B2C87C96F00D5AAFB /* Item.swift */,
 				EE904B5D2C87C98100D5AAFB /* AddView.swift */,
 				EE904B932C8BB2EC00D5AAFB /* DetailView.swift */,
 				EE7DFC3F2C94A3600086D6CA /* Detail-ViewModel.swift */,
 				EE904B952C8BB43D00D5AAFB /* PreviewProvider.swift */,
+				EE904B512C87C4F800D5AAFB /* Preview Content */,
+				EE904B4F2C87C4F800D5AAFB /* Assets.xcassets */,
 			);
 			path = WorkoutRotation;
 			sourceTree = "<group>";
