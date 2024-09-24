@@ -12,9 +12,9 @@ struct StandardButtonModifier: ViewModifier {
         content
             .font(.subheadline)
             .fontWeight(.semibold)
-            .foregroundStyle(.white)
+            .foregroundStyle(.primary)
             .frame(width: 352, height: 44)
-            .background(.gray)
+            .background(.thinMaterial)
             .cornerRadius(8)
     }
 }

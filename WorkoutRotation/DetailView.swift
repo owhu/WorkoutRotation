@@ -18,11 +18,11 @@ struct DetailView: View {
     
     @StateObject private var vm = ViewModel()
      private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-     private let width: Double = 150
+     private let width: Double = 352
     
     init(item: Item) {
         self.item = item
-        _notes = State(initialValue: item.notes ?? "") // Initialize with existing notes or default
+        _notes = State(initialValue: item.notes ?? "Enter notes here") // Initialize with existing notes or default
     }
     
     var body: some View {
@@ -32,91 +32,85 @@ struct DetailView: View {
                     vm.reset()
                 } label: {
                     Image(systemName: "restart.circle.fill")
-                        .frame(width: 55, height: 85)
+                        .frame(width: 95, height: 85)
                         .tint(.red)
                 }
                 .padding(.horizontal, 12)
                 .frame(width: 55)
-                .background(.thinMaterial)
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.gray, lineWidth: 3)
-                )
+
+                Spacer()
                 
                 VStack {
                     Text("\(vm.time)")
                         .font(.system(size: 60, weight: .medium, design: .rounded))
                         .alert("Time", isPresented: $vm.showingAlert) {
                             Button("Continue", role: .cancel) {
-                                vm.time = "1:00"
-                                vm.minutes = 1.0
+                                vm.totalSeconds = Float(vm.initialSeconds)
                                 vm.isActive = false
+                                let minutes = Int(vm.totalSeconds) / 60
+                                let seconds = Int(vm.totalSeconds) % 60
+                                vm.time = String(format: "%d:%02d", minutes, seconds)
+
+//                                vm.time = "\(Int(vm.totalSeconds)):00"
                                 
                             }
                         }
                         .padding(5)
-                        .frame(width: width)
-                        .background(.thinMaterial)
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.gray, lineWidth: 3)
-                        )
                 }
+                
+                Spacer()
+                
                 Button {
-                    vm.start(minutes: vm.minutes)
+                    vm.start(seconds: vm.totalSeconds)
                 } label: {
                     Image(systemName: "play.circle.fill")
-                        .frame(width: 55, height: 85)
+                        .frame(width: 95, height: 85)
                         
                 }
                 .padding(.horizontal, 12)
                 .frame(width: 55)
-                .background(.thinMaterial)
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.gray, lineWidth: 3)
-                )
                 .disabled(vm.isActive)
-                
-                
-                
-                
-                //                    .frame(width: width)
-                //                    .padding(.top)
-                
             }
+            .padding(.horizontal)
+            .frame(width: width)
+            .background(.thinMaterial)
+            .cornerRadius(10)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.gray, lineWidth: 3)
+            )
             .onReceive(timer) { _ in
                 vm.updateCountdown()
             }
             
-            Slider(value: $vm.minutes, in: 1...5, step: 1)
+            Slider(value: $vm.totalSeconds, in: 30...300, step: 5)
             //                      .padding()
                 .disabled(vm.isActive)
-                .animation(.easeInOut, value: vm.minutes)
+                .animation(.easeInOut, value: vm.totalSeconds)
                 .frame(width: width)
             
                 .padding(.horizontal)
             
             TextEditor(text: $notes)
                 .padding(.horizontal)
-                .onDisappear {
-                    saveNotes() // Save notes when the view disappears
+                .onChange(of: notes) {
+                    saveNotes()
                 }
+//                .onDisappear {
+//                    saveNotes() // Save notes when the view disappears
+//                }
                 .focused($nameFieldIsFocused)
         }
         .padding()
         .navigationTitle("\(item.title)")
-        .toolbar {
-            ToolbarItem(placement: .confirmationAction) {
-                Button("Save") {
-                    saveNotes() // Save notes on button tap
-                    dismiss()
-                }
-            }
-        }
+//        .toolbar {
+//            ToolbarItem(placement: .confirmationAction) {
+//                Button("Save") {
+//                    saveNotes() // Save notes on button tap
+//                    dismiss()
+//                }
+//            }
+//        }
         .onAppear {
             // Automatically focus the text field when the view appears
            

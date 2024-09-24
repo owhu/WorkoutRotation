@@ -41,26 +41,23 @@ struct ListItemView: View {
                         .onDelete(perform: removeItems)
                     }
                     
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Button {
-                                showingAddItem = true
-                            } label: {
-                                Image(systemName: "plus")
-                            }
-                            .padding()
-                        }
-                        .padding()
+                    Spacer()
+                    
+                    Button {
+                        showingAddItem = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .modifier(StandardButtonModifier())
                     }
+                    .padding()
+                    
                     .sheet(isPresented: $showingAddItem) {
                         AddView()
                     }
-        
                 }
             }
             .navigationDestination(for: Item.self) { item in
-//                Text("Detail View \(item.title)")
+                //                Text("Detail View \(item.title)")
                 DetailView(item: item)
             }
         }
