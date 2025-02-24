@@ -32,7 +32,7 @@ struct DetailView: View {
                     vm.reset()
                 } label: {
                     Image(systemName: "restart.circle.fill")
-                        .frame(width: 95, height: 85)
+                        .frame(width: 95, height: 65)
                         .tint(.red)
                 }
                 .padding(.horizontal, 12)
@@ -42,7 +42,7 @@ struct DetailView: View {
                 
                 VStack {
                     Text("\(vm.time)")
-                        .font(.system(size: 60, weight: .medium, design: .rounded))
+                        .font(.system(size: 35, weight: .medium, design: .rounded))
                         .alert("Time", isPresented: $vm.showingAlert) {
                             Button("Continue", role: .cancel) {
                                 vm.totalSeconds = Float(vm.initialSeconds)
@@ -64,7 +64,7 @@ struct DetailView: View {
                     vm.start(seconds: vm.totalSeconds)
                 } label: {
                     Image(systemName: "play.circle.fill")
-                        .frame(width: 95, height: 85)
+                        .frame(width: 95, height: 65)
                         
                 }
                 .padding(.horizontal, 12)
@@ -103,6 +103,7 @@ struct DetailView: View {
         }
         .padding()
         .navigationTitle("\(item.title)")
+        .navigationBarTitleDisplayMode(.inline)
 //        .toolbar {
 //            ToolbarItem(placement: .confirmationAction) {
 //                Button("Save") {

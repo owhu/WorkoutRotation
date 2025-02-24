@@ -13,32 +13,41 @@ struct ListItemView: View {
     @Query private var items: [Item]
     
     @State private var showingAddItem = false
+    @State private var draggedItem: Item?
     
-//    let savePath = URL.documentsDirectory.appending(path: "SavedItems.json")
-//    @State private var savedResults = [Item]()
+    private let adaptiveColumns = [
+        GridItem(.adaptive(minimum: 155))
+    ]
     
     var body: some View {
         NavigationStack {
             ZStack {
                 VStack {
-                    List {
-                        ForEach(items) { item in
-                            NavigationLink(value: item) {
-                                HStack {
-                                    Image(systemName: item.isChecked ? "checkmark.square" : "square")
-                                        .resizable()
-                                        .frame(width: 20, height: 20)
-                                        .foregroundColor(item.isChecked ? .blue : .gray)
-                                        .onTapGesture {
-                                            toggleCheck(item)
-                                        }
-
+                    ScrollView {
+                        LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                            ForEach(items) { item in
+                                NavigationLink(value: item) {
                                     Text(item.title)
-                                        .padding(.horizontal)
+                                        .foregroundStyle(.white)
+                                        .padding()
+                                        .frame(width: 155, height: 155)
+                                        .background(Color.gray.opacity(0.5))
+                                        .cornerRadius(10)
                                 }
+                                WeeklyHabitTrackerView(item: item)
+                                
+                                
+                                //                            ForEach(items) { item in
+                                //                                TimeBlockView(item: item)
+                                //                                    .draggable(item) {
+                                //                                        // This is the preview while dragging
+                                //                                        TimeBlockView(item: item)
+                                //                                            .frame(width: 155, height: 155)
+                                //                                    }
+                                //                            }
                             }
                         }
-                        .onDelete(perform: removeItems)
+                        .padding()
                     }
                     
                     Spacer()
@@ -57,42 +66,22 @@ struct ListItemView: View {
                 }
             }
             .navigationDestination(for: Item.self) { item in
-                //                Text("Detail View \(item.title)")
                 DetailView(item: item)
             }
         }
     }
+}
 
-//    init(type: String = "All", sortOrder: [SortDescriptor<Item>]) {
-//        _items = Query(filter: #Predicate {
-//            if type == "All" {
-//                return true
-//            } else {
-//                return $0.type == type
-//            }
-//        }, sort: sortOrder)
-//    }
-
+struct TimeBlockView: View {
+    let item: Item
     
-    func toggleCheck(_ selectedItem: Item) {
-        if selectedItem.isChecked {
-            // Uncheck the item if it is already checked
-            if let index = items.firstIndex(where: { $0.id == selectedItem.id }) {
-                items[index].isChecked = false
-            }
-        } else {
-            // Check the selected item
-            if let index = items.firstIndex(where: { $0.id == selectedItem.id }) {
-                items[index].isChecked = true
-            }
-        }
-    }
-    
-    func removeItems(at offsets: IndexSet) {
-        for offset in offsets {
-            let item = items[offset]
-            modelContext.delete(item)
-        }
+    var body: some View {
+        Text(item.title)
+            .foregroundStyle(.white)
+            .padding()
+            .frame(width: 155, height: 155)
+            .background(Color.gray.opacity(0.5))
+            .cornerRadius(10)
     }
 }
 

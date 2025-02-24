@@ -12,13 +12,13 @@ struct AddView: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var title = ""
-    @State private var type = "Unchecked"
+//    @State private var type = "Unchecked"
     @State private var checked = false
     
     @FocusState private var nameFieldIsFocused: Bool
     
-    //static allows us to read externally
-    static let types = ["Checked", "Unchecked"]
+//    //static allows us to read externally
+//    static let types = ["Checked", "Unchecked"]
     
 
     var body: some View {
@@ -46,9 +46,9 @@ struct AddView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 // Automatically focus the text field when the view appears
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     nameFieldIsFocused = true
-                }
+//                }
             }
             .onSubmit {
                 let item = Item(title: title, isChecked: false, dateAdded: Date.now)

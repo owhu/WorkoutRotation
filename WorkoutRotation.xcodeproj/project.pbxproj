@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EE7DFC402C94A3600086D6CA /* Detail-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7DFC3F2C94A3600086D6CA /* Detail-ViewModel.swift */; };
 		EE7DFC5A2C9B87FB0086D6CA /* StandardButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7DFC592C9B87FB0086D6CA /* StandardButtonModifier.swift */; };
+		EE7F539A2D6D339E00FAE87D /* WeeklyHabitTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7F53992D6D339E00FAE87D /* WeeklyHabitTrackerView.swift */; };
 		EE904B4C2C87C4F600D5AAFB /* WorkoutRotationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B4B2C87C4F600D5AAFB /* WorkoutRotationApp.swift */; };
 		EE904B4E2C87C4F600D5AAFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B4D2C87C4F600D5AAFB /* ContentView.swift */; };
 		EE904B502C87C4F800D5AAFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE904B4F2C87C4F800D5AAFB /* Assets.xcassets */; };
@@ -18,11 +19,13 @@
 		EE904B5E2C87C98100D5AAFB /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B5D2C87C98100D5AAFB /* AddView.swift */; };
 		EE904B942C8BB2ED00D5AAFB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B932C8BB2EC00D5AAFB /* DetailView.swift */; };
 		EE904B962C8BB43E00D5AAFB /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904B952C8BB43D00D5AAFB /* PreviewProvider.swift */; };
+		EEE60D212D568BF00002379D /* WeeklyScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE60D202D568BF00002379D /* WeeklyScheduleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EE7DFC3F2C94A3600086D6CA /* Detail-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detail-ViewModel.swift"; sourceTree = "<group>"; };
 		EE7DFC592C9B87FB0086D6CA /* StandardButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardButtonModifier.swift; sourceTree = "<group>"; };
+		EE7F53992D6D339E00FAE87D /* WeeklyHabitTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyHabitTrackerView.swift; sourceTree = "<group>"; };
 		EE904B482C87C4F600D5AAFB /* WorkoutRotation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutRotation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE904B4B2C87C4F600D5AAFB /* WorkoutRotationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRotationApp.swift; sourceTree = "<group>"; };
 		EE904B4D2C87C4F600D5AAFB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +36,7 @@
 		EE904B5D2C87C98100D5AAFB /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		EE904B932C8BB2EC00D5AAFB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		EE904B952C8BB43D00D5AAFB /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		EEE60D202D568BF00002379D /* WeeklyScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyScheduleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,148 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE7DFCA82CA665570086D6CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EE7DFC3F2C94A3600086D6CA /* Detail-ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EE7DFCA92CA6655A0086D6CA /* DetailItem */ = {
+			isa = PBXGroup;
+			children = (
+				EE7DFCB62CA668000086D6CA /* View */,
+				EE7DFCA82CA665570086D6CA /* ViewModel */,
+			);
+			path = DetailItem;
+			sourceTree = "<group>";
+		};
+		EE7DFCAA2CA6655C0086D6CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE904B5B2C87C96F00D5AAFB /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EE7DFCAB2CA665E30086D6CA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EE7DFC592C9B87FB0086D6CA /* StandardButtonModifier.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EE7DFCAC2CA666020086D6CA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EE904B952C8BB43D00D5AAFB /* PreviewProvider.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		EE7DFCAD2CA666160086D6CA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EE904B4B2C87C4F600D5AAFB /* WorkoutRotationApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EE7DFCAE2CA666290086D6CA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EE7DFCB42CA667BE0086D6CA /* AddItem */,
+				EE7DFCA92CA6655A0086D6CA /* DetailItem */,
+				EE7DFCB12CA667650086D6CA /* ListItem */,
+				EE7DFCAF2CA666800086D6CA /* Root */,
+				EEE60D1F2D568BDC0002379D /* Schedule */,
+				EE7F539B2D6D33AC00FAE87D /* WeeklyHabitTracker */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EE7DFCAF2CA666800086D6CA /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				EE904B4D2C87C4F600D5AAFB /* ContentView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		EE7DFCB12CA667650086D6CA /* ListItem */ = {
+			isa = PBXGroup;
+			children = (
+				EE7DFCB22CA667860086D6CA /* View */,
+				EE7DFCB32CA667890086D6CA /* ViewModel */,
+			);
+			path = ListItem;
+			sourceTree = "<group>";
+		};
+		EE7DFCB22CA667860086D6CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE904B592C87C95400D5AAFB /* ItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EE7DFCB32CA667890086D6CA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EE7DFCB42CA667BE0086D6CA /* AddItem */ = {
+			isa = PBXGroup;
+			children = (
+				EE7DFCB52CA667D80086D6CA /* View */,
+			);
+			path = AddItem;
+			sourceTree = "<group>";
+		};
+		EE7DFCB52CA667D80086D6CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE904B5D2C87C98100D5AAFB /* AddView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EE7DFCB62CA668000086D6CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE904B932C8BB2EC00D5AAFB /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EE7F539B2D6D33AC00FAE87D /* WeeklyHabitTracker */ = {
+			isa = PBXGroup;
+			children = (
+				EE7F539C2D6D33C900FAE87D /* View */,
+				EE7F53992D6D339E00FAE87D /* WeeklyHabitTrackerView.swift */,
+				EE7F539D2D6D33D400FAE87D /* ViewModel */,
+			);
+			path = WeeklyHabitTracker;
+			sourceTree = "<group>";
+		};
+		EE7F539C2D6D33C900FAE87D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EE7F539D2D6D33D400FAE87D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		EE904B3F2C87C4F600D5AAFB = {
 			isa = PBXGroup;
 			children = (
@@ -65,15 +211,11 @@
 		EE904B4A2C87C4F600D5AAFB /* WorkoutRotation */ = {
 			isa = PBXGroup;
 			children = (
-				EE904B4B2C87C4F600D5AAFB /* WorkoutRotationApp.swift */,
-				EE904B4D2C87C4F600D5AAFB /* ContentView.swift */,
-				EE904B592C87C95400D5AAFB /* ItemView.swift */,
-				EE904B5B2C87C96F00D5AAFB /* Item.swift */,
-				EE904B5D2C87C98100D5AAFB /* AddView.swift */,
-				EE904B932C8BB2EC00D5AAFB /* DetailView.swift */,
-				EE7DFC3F2C94A3600086D6CA /* Detail-ViewModel.swift */,
-				EE904B952C8BB43D00D5AAFB /* PreviewProvider.swift */,
-				EE7DFC592C9B87FB0086D6CA /* StandardButtonModifier.swift */,
+				EE7DFCAD2CA666160086D6CA /* App */,
+				EE7DFCAE2CA666290086D6CA /* Core */,
+				EE7DFCAC2CA666020086D6CA /* Extension */,
+				EE7DFCAA2CA6655C0086D6CA /* Model */,
+				EE7DFCAB2CA665E30086D6CA /* Utilities */,
 				EE904B512C87C4F800D5AAFB /* Preview Content */,
 				EE904B4F2C87C4F800D5AAFB /* Assets.xcassets */,
 			);
@@ -86,6 +228,14 @@
 				EE904B522C87C4F800D5AAFB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EEE60D1F2D568BDC0002379D /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				EEE60D202D568BF00002379D /* WeeklyScheduleView.swift */,
+			);
+			path = Schedule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,9 +313,11 @@
 				EE904B4E2C87C4F600D5AAFB /* ContentView.swift in Sources */,
 				EE7DFC5A2C9B87FB0086D6CA /* StandardButtonModifier.swift in Sources */,
 				EE904B5E2C87C98100D5AAFB /* AddView.swift in Sources */,
+				EEE60D212D568BF00002379D /* WeeklyScheduleView.swift in Sources */,
 				EE904B5A2C87C95400D5AAFB /* ItemView.swift in Sources */,
 				EE7DFC402C94A3600086D6CA /* Detail-ViewModel.swift in Sources */,
 				EE904B962C8BB43E00D5AAFB /* PreviewProvider.swift in Sources */,
+				EE7F539A2D6D339E00FAE87D /* WeeklyHabitTrackerView.swift in Sources */,
 				EE904B4C2C87C4F600D5AAFB /* WorkoutRotationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
