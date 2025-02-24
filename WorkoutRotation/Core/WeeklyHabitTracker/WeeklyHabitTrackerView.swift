@@ -24,14 +24,13 @@ struct WeeklyHabitTrackerView: View {
     var body: some View {
         HStack(spacing: 15) {
             ForEach(days.indices, id: \.self) { index in
-                VStack {
+                VStack(spacing: 4) {
                 Button{
                     toggleCheckmark(at: index)
                 } label: {
 //                    Text(days[index])
                     Circle()
-                        .scaledToFit()
-//                        .frame(width: 40, height: 40)
+                        .frame(width: 10, height: 10)
 //                        .background(habitArray[index] == "1" ? Color.green : Color.gray.opacity(0.2))
                         .foregroundColor(habitArray[index] == "1" ? Color.green : Color.gray.opacity(0.2))
 //                        .clipShape(Circle())
@@ -42,6 +41,7 @@ struct WeeklyHabitTrackerView: View {
                 }
                 Text(days[index])
                         .font(.caption2)
+                        .frame(width: 10, height: 20)
                 }
             }
         }
