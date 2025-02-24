@@ -28,16 +28,17 @@ struct WeeklyHabitTrackerView: View {
                 Button{
                     toggleCheckmark(at: index)
                 } label: {
-                    Text(days[index])
+//                    Text(days[index])
+                    Circle()
                         .scaledToFit()
 //                        .frame(width: 40, height: 40)
-                        .background(habitArray[index] == "1" ? Color.green : Color.gray.opacity(0.2))
-                        .foregroundColor(.primary)
-                        .clipShape(Circle())
-                        .overlay(
-                            Image(systemName: habitArray[index] == "1" ? "checkmark" : "")
-                                .foregroundColor(.white)
-                        )
+//                        .background(habitArray[index] == "1" ? Color.green : Color.gray.opacity(0.2))
+                        .foregroundColor(habitArray[index] == "1" ? Color.green : Color.gray.opacity(0.2))
+//                        .clipShape(Circle())
+//                        .overlay(
+//                            Image(systemName: habitArray[index] == "1" ? "checkmark" : "")
+//                                .foregroundColor(.white)
+//                        )
                 }
                 Text(days[index])
                         .font(.caption2)
