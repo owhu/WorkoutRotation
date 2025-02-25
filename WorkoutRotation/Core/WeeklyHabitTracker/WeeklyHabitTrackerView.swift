@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WeeklyHabitTrackerView: View {
-    let days = ["S", "M", "T", "W", "T", "F", "S"]
+    let days = ["M", "T", "W", "T", "F", "S", "S"]
     @AppStorage private var habitData: String
     private var habitArray: [Character] { Array(habitData) }
     let item: Item

@@ -26,29 +26,45 @@ struct ListItemView: View {
                     ScrollView {
                         LazyVGrid(columns: adaptiveColumns, spacing: 20) {
                             ForEach(items) { item in
-                                NavigationLink(value: item) {
-                                    Text(item.title)
-                                        .foregroundStyle(.white)
-                                        .padding()
-                                        .frame(width: 155, height: 155)
-                                        .background(Color.gray.opacity(0.5))
-                                        .cornerRadius(10)
+                                VStack {
+                                    NavigationLink(value: item) {
+                                        Text(item.title)
+                                            .foregroundStyle(.white)
+                                            .padding()
+                                            .frame(width: 155, height: 155)
+                                            .background(Color.gray.opacity(0.5))
+                                            .cornerRadius(10)
+                                    }
+                                    WeeklyHabitTrackerView(item: item)
                                 }
-                                WeeklyHabitTrackerView(item: item)
-                                
-                                
-                                //                            ForEach(items) { item in
-                                //                                TimeBlockView(item: item)
-                                //                                    .draggable(item) {
-                                //                                        // This is the preview while dragging
-                                //                                        TimeBlockView(item: item)
-                                //                                            .frame(width: 155, height: 155)
-                                //                                    }
-                                //                            }
                             }
                         }
                         .padding()
                     }
+                    
+//                    List {
+//                        ForEach(items) { item in
+//                            VStack {
+//                                NavigationLink(value: item) {
+//                                    Text(item.title)
+//                                        .foregroundStyle(.white)
+//                                        .padding()
+////                                        .frame(maxWidth: .infinity)
+//                                        .frame(width: 155, height: 155)
+//                                        .background(Color.gray.opacity(0.5))
+//                                        .cornerRadius(10)
+//                                }
+//                                WeeklyHabitTrackerView(item: item)
+//                            }
+//                           
+//                        }
+//                        .onDelete { indexSet in
+//                            for index in indexSet {
+//                                modelContext.delete(items[index])
+//                            }
+//                        }
+//                    }
+//                    .listStyle(.plain)
                     
                     Spacer()
                     
@@ -71,20 +87,6 @@ struct ListItemView: View {
         }
     }
 }
-
-struct TimeBlockView: View {
-    let item: Item
-    
-    var body: some View {
-        Text(item.title)
-            .foregroundStyle(.white)
-            .padding()
-            .frame(width: 155, height: 155)
-            .background(Color.gray.opacity(0.5))
-            .cornerRadius(10)
-    }
-}
-
 
 #Preview {
     ListItemView()

@@ -11,6 +11,7 @@ struct DetailView: View {
     @Environment(\.modelContext) var modelContext // Access the model context
     @State private var notes: String // State to hold the notes
     @Environment(\.dismiss) var dismiss
+    @State private var showingDeleteAlert = false  // Add this line
     
     @FocusState private var nameFieldIsFocused: Bool
     
@@ -104,14 +105,23 @@ struct DetailView: View {
         .padding()
         .navigationTitle("\(item.title)")
         .navigationBarTitleDisplayMode(.inline)
-//        .toolbar {
-//            ToolbarItem(placement: .confirmationAction) {
-//                Button("Save") {
-//                    saveNotes() // Save notes on button tap
-//                    dismiss()
-//                }
-//            }
-//        }
+        .toolbar {
+            ToolbarItem(placement: .destructiveAction) {
+                Button(role: .destructive) {
+                    showingDeleteAlert = true  // Show alert instead of deleting directly
+                } label: {
+                    Image(systemName: "trash")
+                }
+            }
+        }
+        .alert("Delete Item", isPresented: $showingDeleteAlert) {
+            Button("Cancel", role: .cancel) { }
+            Button("Delete", role: .destructive) {
+                deleteItem()
+            }
+        } message: {
+            Text("Are you sure you want to delete this item? This action cannot be undone.")
+        }
         .onAppear {
             // Automatically focus the text field when the view appears
            
@@ -128,6 +138,13 @@ struct DetailView: View {
         } catch {
             print("Failed to save notes: \(error.localizedDescription)")
         }
+    }
+    
+    // Add this new function
+    private func deleteItem() {
+        modelContext.delete(item)
+        try? modelContext.save()
+        dismiss()
     }
 }
 
